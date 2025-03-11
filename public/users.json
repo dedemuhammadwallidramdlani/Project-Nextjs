@@ -1,0 +1,23 @@
+[
+    { "id": 1, "name": "John Doe", "email": "johndoe@example.com", "role": "Admin" },
+    { "id": 2, "name": "Jane Smith", "email": "janesmith@example.com", "role": "User" },
+    { "id": 3, "name": "Alice Johnson", "email": "alice@example.com", "role": "Editor" },
+    { "id": 4, "name": "Michael Brown", "email": "michael@example.com", "role": "User" },
+    { "id": 5, "name": "Emily Davis", "email": "emily@example.com", "role": "Admin" },
+    { "id": 6, "name": "Daniel Wilson", "email": "daniel@example.com", "role": "User" },
+    { "id": 7, "name": "Sophia Miller", "email": "sophia@example.com", "role": "Editor" },
+    { "id": 8, "name": "James Anderson", "email": "james@example.com", "role": "User" },
+    { "id": 9, "name": "Olivia Martinez", "email": "olivia@example.com", "role": "Admin" },
+    { "id": 10, "name": "William Thomas", "email": "william@example.com", "role": "Editor" },
+    { "id": 11, "name": "Charlotte White", "email": "charlotte@example.com", "role": "User" },
+    { "id": 12, "name": "Benjamin Harris", "email": "benjamin@example.com", "role": "User" },
+    { "id": 13, "name": "Ava Clark", "email": "ava@example.com", "role": "Editor" },
+    { "id": 14, "name": "Ethan Lewis", "email": "ethan@example.com", "role": "Admin" },
+    { "id": 15, "name": "Mia Robinson", "email": "mia@example.com", "role": "User" },
+    { "id": 16, "name": "Alexander Walker", "email": "alexander@example.com", "role": "Editor" },
+    { "id": 17, "name": "Harper Young", "email": "harper@example.com", "role": "Admin" },
+    { "id": 18, "name": "Lucas Hall", "email": "lucas@example.com", "role": "User" },
+    { "id": 19, "name": "Amelia Allen", "email": "amelia@example.com", "role": "Editor" },
+    { "id": 20, "name": "Henry Wright", "email": "henry@example.com", "role": "User" }
+  ]
+  
