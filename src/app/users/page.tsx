@@ -63,19 +63,19 @@ const Users = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4 text-white dark:text-white">Users</h1>
+      <h1 className="text-3xl font-bold mb-4 text-gray-700 dark:text-white">Users</h1>
 
       <div className="flex justify-between items-center mb-4">
         <div className="relative flex-grow mr-4">
           <input
             type="text"
             placeholder="Search users..."
-            className="w-full p-2 border rounded-lg text-white pl-10"
+            className="w-full p-2 border rounded-lg text-gray pl-10"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-            <Search size={18} className="text-white" />
+            <Search size={18} className="text-gray" />
           </div>
         </div>
         <button
@@ -91,11 +91,11 @@ const Users = () => {
   <table className="min-w-full bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden">
     <thead className="bg-gray-100 dark:bg-gray-700">
       <tr>
-        <th className="py-3 px-6 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
-        <th className="py-3 px-6 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>
-        <th className="py-3 px-6 text-left text-xs font-medium text-white uppercase tracking-wider">Email</th>
-        <th className="py-3 px-6 text-left text-xs font-medium text-white uppercase tracking-wider">Role</th>
-        <th className="py-3 px-6 text-left text-xs font-medium text-white uppercase tracking-wider">Actions</th>
+        <th className="py-3 px-6 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">ID</th>
+        <th className="py-3 px-6 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Name</th>
+        <th className="py-3 px-6 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Email</th>
+        <th className="py-3 px-6 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Role</th>
+        <th className="py-3 px-6 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">Actions</th>
       </tr>
     </thead>
     <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">

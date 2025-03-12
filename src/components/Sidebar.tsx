@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Users, Bed } from "lucide-react";
+import { Home, Users, Bed, Layers, Watch, Clock } from "lucide-react";
 import Link from "next/link";
 import { useSidebar } from "../components/context/SidebarContext"; // Pastikan path benar
 
@@ -27,6 +27,7 @@ const Sidebar = () => {
         <SidebarItem href="/dashboard" icon={<Home size={24} />} label="Dashboard" isOpen={isOpen} />
         <SidebarItem href="/users" icon={<Users size={24} />} label="User" isOpen={isOpen} />
         <SidebarItem href="/rooms" icon={<Bed size={24} />} label="Room" isOpen={isOpen} />
+        <SidebarItem href="/booking" icon={<Clock size={24} />} label="Booking" isOpen={isOpen} />
       </nav>
     </div>
   );
