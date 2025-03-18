@@ -13,16 +13,49 @@ type Booking = {
 };
 
 const Bookings = () => {
-    const [bookings, setBookings] = useState<Booking[]>([
-        { id: 1, customer: "John Doe", room: "Room A", checkIn: "2025-03-10", checkOut: "2025-03-15", status: "Confirmed" },
-        { id: 2, customer: "Jane Smith", room: "Room B", checkIn: "2025-03-12", checkOut: "2025-03-18", status: "Pending" },
-        { id: 3, customer: "Alice Johnson", room: "Room C", checkIn: "2025-03-14", checkOut: "2025-03-20", status: "Checked In" },
-      ]);
-      
+  const [bookings, setBookings] = useState<Booking[]>([
+    { id: 1, customer: "John Doe", room: "Room A", checkIn: "2025-03-10", checkOut: "2025-03-15", status: "Confirmed" },
+    { id: 2, customer: "Jane Smith", room: "Room B", checkIn: "2025-03-12", checkOut: "2025-03-18", status: "Pending" },
+    { id: 3, customer: "Alice Johnson", room: "Room C", checkIn: "2025-03-14", checkOut: "2025-03-20", status: "Checked In" },
+    { id: 4, customer: "Bob Brown", room: "Room D", checkIn: "2025-03-16", checkOut: "2025-03-22", status: "Confirmed" },
+    { id: 5, customer: "Charlie Davis", room: "Room E", checkIn: "2025-03-18", checkOut: "2025-03-24", status: "Pending" },
+    { id: 6, customer: "Eve White", room: "Room F", checkIn: "2025-03-20", checkOut: "2025-03-26", status: "Checked In" },
+  ]);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [editingBooking, setEditingBooking] = useState<Booking | null>(null);
-  
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(5); // Jumlah item per halaman
+
+  // Filter bookings berdasarkan search query
+  const filteredBookings = bookings.filter((booking) =>
+    booking.customer.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    booking.room.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Hitung total halaman
+  const totalPages = Math.ceil(filteredBookings.length / itemsPerPage);
+
+  // Ambil data untuk halaman saat ini
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentBookings = filteredBookings.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Fungsi untuk berpindah halaman
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
 
   const handleAddBooking = () => {
     setEditingBooking({ id: Date.now(), customer: "", room: "", checkIn: "", checkOut: "", status: "Pending" });
@@ -78,7 +111,7 @@ const Bookings = () => {
             </tr>
           </thead>
           <tbody>
-            {bookings.map((booking) => (
+            {currentBookings.map((booking) => (
               <tr key={booking.id} className="border-b hover:bg-gray-100 dark:hover:bg-gray-700">
                 <td className="py-3 px-6">{booking.id}</td>
                 <td className="py-3 px-6">{booking.customer}</td>
@@ -98,6 +131,29 @@ const Bookings = () => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Pagination Controls */}
+      <div className="flex justify-between items-center mt-6">
+        <div className="text-sm text-gray-700 dark:text-gray-300">
+          Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, filteredBookings.length)} of {filteredBookings.length} entries
+        </div>
+        <div className="flex space-x-2">
+          <button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+          >
+            Previous
+          </button>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+          >
+            Next
+          </button>
+        </div>
       </div>
 
       {showModal && (
